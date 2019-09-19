@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form,Input,Button } from 'antd';
+import { Form,Input,Button,Row,Col } from 'antd';
 
 class Delete extends Component {
     handleSubmit = e =>{
@@ -11,37 +11,43 @@ class Delete extends Component {
             method:'DELETE'
             }).then(res => res.text()).then(out => alert(out));
             }
-        });
+        });    
     }
     render() { 
         const { getFieldDecorator } = this.props.form;
+
         const formItemLayout = {
-            labelCol: {
-              xs: { span: 24 },
-              sm: { span: 8 },
+          labelCol: {
+            xs: { span: 24 },
+            sm: { span: 10},
+          },
+          wrapperCol: {
+            xs: { span: 22 },
+            sm: { span: 4 },
+          },
+        };
+        const tailFormItemLayout = {
+          wrapperCol: {
+            xs: {
+              span: 22,
+              offset: 1,
             },
-            wrapperCol: {
-              xs: { span: 12 },
-              sm: { span: 16 },
+            sm: {
+              span: 4,
+              offset: 10,
             },
-          };
-          const tailFormItemLayout = {
-            wrapperCol: {
-              xs: {
-                span: 12,
-                offset: 0,
-              },
-              sm: {
-                span: 16,
-                offset: 8,
-              },
-            },
-          };
+          },
+        };
+        
         return ( 
             <React.Fragment>
-               <h1 style={{padding:'10px 700px 20px',fontSize:'30px'}}>Student Deletion</h1>
-               <Form {...formItemLayout} onSubmit={this.handleSubmit} layout='inline'>
-                   <Form.Item label="USN" style={{paddingLeft:'600px'}}>
+               <Row>
+                <Col xs={{span:22,offset:1}} sm={{span:14,offset:10}} md={{span:14,offset:10}} lg={{span:8,offset:10}}>
+                  <h1 style={{paddingBottom:'20px',fontSize:'30px'}}>Student Deletion</h1>
+                </Col>
+              </Row>
+               <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                   <Form.Item label="USN">
                        {getFieldDecorator('usn',{
                            rules:[
                                {
@@ -55,9 +61,9 @@ class Delete extends Component {
                                 message: "The input is not a valid USN"
                                }
                            ]
-                       })(<Input size='large' style={{width:'200px'}}/>)}
+                       })(<Input size='large' style={{width:'250px'}}/>)}
                    </Form.Item>
-                   <Form.Item {...tailFormItemLayout} style={{paddingLeft:'25px'}}>
+                   <Form.Item {...tailFormItemLayout}>
                         <Button type="primary" htmlType="submit">
                             Delete
                         </Button>

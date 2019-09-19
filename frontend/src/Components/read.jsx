@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Descriptions } from 'antd';
+import { Descriptions,Row,Col} from 'antd';
 
 class Read extends Component {
 
@@ -15,13 +15,22 @@ class Read extends Component {
     render() { 
         return (
             <React.Fragment>
-                <h1 style={{padding:'10px 700px 0px',fontSize:'30px'}}>Student Details</h1>
-                {this.state.display.map(out =>{return <Descriptions style={{padding: '50px 100px'}}bordered title={out.name} key={out['_id']}>
-            <Descriptions.Item label="USN">{out.usn}</Descriptions.Item>
-            <Descriptions.Item label="Branch" span={2}>{out.branch}</Descriptions.Item>
-            <Descriptions.Item label="Semester">{out.sem}</Descriptions.Item>
-            <Descriptions.Item label="Phone number">{out.phno}</Descriptions.Item>
-        </Descriptions>})}
+                <Row>
+                <Col xs={{span:22,offset:1}} sm={{span:16,offset:8}} md={{span:16,offset:8}} lg={{span:8,offset:9}}>
+                  <h1 style={{fontSize:'30px'}}>Student Details</h1>
+                </Col>
+              </Row>
+              <Row>
+                  <Col xs={{span:22, offset:1}} sm={{span:16,offset:4}}>
+                    {this.state.display.map(out =>{return <Descriptions style={{paddingBottom:'30px'}}bordered title={out.name} key={out['_id']}>
+                        <Descriptions.Item label="USN">{out.usn}</Descriptions.Item>
+                        <Descriptions.Item label="Branch" span={2}>{out.branch}</Descriptions.Item>
+                        <Descriptions.Item label="Semester">{out.sem}</Descriptions.Item>
+                        <Descriptions.Item label="Phone number">{out.phno}</Descriptions.Item>
+                        </Descriptions>})
+                    }
+                  </Col>
+              </Row> 
             </React.Fragment>
         );
     }

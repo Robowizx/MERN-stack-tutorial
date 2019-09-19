@@ -21,6 +21,12 @@ app.get('/read',(req,res)=>{
            .catch(err => res.status(400).send("Error: "+err));
 });
 
+app.get('/read/:uid',(req,res)=>{
+    student.find({usn: req.params.uid})
+           .then(student => res.json(student))
+           .catch(err => res.status(400).send("Error: "+err));
+});
+
 app.post('/create',(req,res)=>{
       const newStudent = new student({
         usn: req.body.usn,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form,Input,InputNumber,Select,Button } from 'antd';
+import { Form,Input,InputNumber,Select,Button,Row,Col } from 'antd';
 
 const { Option } = Select;
 
@@ -24,29 +24,33 @@ class Create extends Component {
 
         const formItemLayout = {
             labelCol: {
-              xs: { span: 6 },
-              sm: { span: 4 },
+              xs: { span: 24 },
+              sm: { span: 4},
             },
             wrapperCol: {
-              xs: { span: 6 },
-              sm: { span: 8 },
+              xs: { span: 24 },
+              sm: { span: 16 },
             },
           };
           const tailFormItemLayout = {
             wrapperCol: {
               xs: {
-                span: 6,
+                span: 24,
                 offset: 0,
               },
               sm: {
-                span: 8,
-                offset: 4,
+                span: 16,
+                offset: 8,
               },
             },
           };
         return ( 
             <React.Fragment>
-              <h1 style={{padding:'10px 700px 0px',fontSize:'30px'}}>Student Registration</h1>
+              <Row>
+                <Col xs={{span:22,offset:1}} sm={{span:16,offset:8}} md={{span:16,offset:8}} lg={{span:8,offset:9}}>
+                  <h1 style={{fontSize:'30px'}}>Student Registration</h1>
+                </Col>
+              </Row>
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                 <Form.Item label="USN">
                     {getFieldDecorator('usn',{

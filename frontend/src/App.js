@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import CreateForm from './Components/create';
 import Read from './Components/read';
 import DeleteForm from './Components/delete';
+import UpdateForm from './Components/update';
 import back from './MERN.jpg';
 
 
@@ -21,6 +22,7 @@ class App extends Component {
         case "create": return <CreateForm/>;
         case "read": return <Read/>;
         case "delete": return <DeleteForm/>;
+        case "update": return <UpdateForm/>;
         default: return <h1 style={{margin: '300px 650px 460px',fontSize:'50px'}}>In development</h1>; 
      }
   } 

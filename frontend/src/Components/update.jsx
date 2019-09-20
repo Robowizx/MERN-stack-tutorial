@@ -62,7 +62,7 @@ class Update extends Component {
             wrapperCol: {
               xs: {
                 span: 6,
-                offset: 0,
+                offset: 1,
               },
               sm: {
                 span: 8,
